@@ -1,0 +1,33 @@
+name: Auto-Deploy Static Website to Azure
+
+on:
+  workflow_dispatch:  # Only run when you click "Run workflow" (safer for project)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: |
+            {
+              "clientId": "${{ secrets.AZURE_CLIENT_ID }}",
+              "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}",
+              "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}",
+              "tenantId": "${{ secrets.AZURE_TENANT_ID }}"
+            }
+
+      - name: Make scripts executable
+        run: |
+          chmod +x scripts/deploy-infrastructure.sh
+          chmod +x scripts/deploy-website.sh
+
+      - name:Deploy Infrastructure
+        run: ./scripts/deploy-infrastructure.sh
+
+      - name: Deploy Website
+        run: ./scripts/deploy-website.sh
