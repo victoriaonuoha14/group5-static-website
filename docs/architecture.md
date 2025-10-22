@@ -14,11 +14,11 @@ This project deploys a static website on Azure using Infrastructure-as-Code (IaC
 | Subnet | `web-subnet` (CIDR: `10.0.0.0/24`) |
 | NSG | `web-nsg` (allows ports 80 and 22) |
 | Public IP | Static, assigned to VM NIC |
-| Admin User  | `cloudproject` |
+| Admin User | `cloudproject` |
 
 ##  Network Flow
 
-##  Why This Design?
+## Why This Design?
 
 - No manual steps: All resources created via `deploy-infrastructure.sh`
 - Secure by default: NSG restricts traffic to only HTTP (80) and SSH (22)
