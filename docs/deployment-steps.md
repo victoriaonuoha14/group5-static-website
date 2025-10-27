@@ -35,6 +35,7 @@ This document outlines the step-by-step process used to deploy the Group 5 Stati
 
 5. **Documentation**
    - Created architecture diagram and deployment guide
+   - Recorded demo video link - https://share.vidyard.com/watch/fed7o9JQqVJm9xL3Tj8uVE
    - Captured all required screenshots (local site, GitHub, Azure Portal, live site)
 
 6. **Bonus: GitHub Actions Automation**
